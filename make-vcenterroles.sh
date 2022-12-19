@@ -206,6 +206,7 @@ export LOCAL_ENV_PARAM=${1}
     ./govc role.create ${VCENTER_ROLE_PREFIX}-vCenter-Datastore \
     Datastore.AllocateSpace \
     Datastore.Browse \
+    Datastore.FileManagement \
     InventoryService.Tagging.ObjectAttachable
 
     echo "./govc role.ls ${VCENTER_ROLE_PREFIX}-vCenter-Datastore"
