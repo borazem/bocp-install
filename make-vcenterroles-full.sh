@@ -260,7 +260,7 @@ export LOCAL_ENV_PARAM=${1}
     ./govc role.ls ${VCENTER_ROLE_PREFIX}-vCenter-Datastore
 
 
-    # role for vCenter ResourcePool - Used only ir there are predefine Resource Pools Permissions not assigned automatically
+    # role for vCenter ResourcePool - Used only ir there are predefine Resource Pools Permissions not yet assigned automatically
     echo ""
     ./govc role.create ${VCENTER_ROLE_PREFIX}-vCenter-ResourcePool \
     Host.Config.Storage \
@@ -273,7 +273,7 @@ export LOCAL_ENV_PARAM=${1}
     ./govc role.ls ${VCENTER_ROLE_PREFIX}-vCenter-ResourcePool
 
 
-    # role for vCenter VM Folder - Used only ir there are predefine VM Folder. Permissions not assigned automatically.
+    # role for vCenter VM Folder - Used only ir there are predefine VM Folder. Permissions not yet assigned automatically.
     echo ""
     ./govc role.create ${VCENTER_ROLE_PREFIX}-VM-Folder \
     InventoryService.Tagging.ObjectAttachable \
