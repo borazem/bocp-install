@@ -24,7 +24,7 @@ export OCP_SERVICE_NETWORK="172.30.0.0/16"
 # The Infrastructuer ID is generated when cluster is generated and templace name and folder path are created by Installer.
 export VCENTER_RESOURCE_POOL="/${VCENTER_DATACENTER_NAME}/host/${VCENTER_CLUSTER}/Resources"
 # to get infrastructure_id in the process of cluster installation run  ./openshift-install create manifests --dir=<installfolder> then 
-# execute " cat <installfolder>/manifests/instacluster-infrastructure-02-config.yml |grep infrastructureName |awk '{ print $2 }' 
+# execute " cat <installfolder>/manifests/cluster-infrastructure-02-config.yml |grep infrastructureName |awk '{ print $2 }' 
 # or after cluster is deployed " oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster "
 export INFRASTRUCTURE_ID="bocp-qbmrq"
 export VCENTER_VM_TEMPLATE_NAME="${INFRASTRUCTURE_ID}-rhcos"
