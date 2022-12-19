@@ -1,0 +1,32 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  CSI_ENABLE_CSIADDONS: "true"
+  CSI_LOG_LEVEL: "5"
+  CSI_PLUGIN_TOLERATIONS: |2-
+
+    - key: node.ocs.openshift.io/storage
+      operator: Equal
+      value: "true"
+      effect: NoSchedule
+    - key: node-role.kubernetes.io/infra
+      operator: Exists
+      effect: NoSchedule
+
+  CSI_PROVISIONER_TOLERATIONS: |2-
+
+    - key: node.ocs.openshift.io/storage
+      operator: Equal
+      value: "true"
+      effect: NoSchedule
+    - key: node-role.kubernetes.io/infra
+      operator: Exists
+      effect: NoSchedule
+
+kind: ConfigMap
+metadata:
+  name: rook-ceph-operator-config
+  namespace: openshift-storage
