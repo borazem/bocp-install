@@ -340,7 +340,7 @@ export LOCAL_ENV_PARAM=${1}
 
     echo ""
     echo " Assigning permissions to vCenter Datasotre: /${VCENTER_DATACENTER_NAME}/datastore/${VCENTER_DATASTORE_NAME}"
-    ./govc permissions.set -principal="${VCENTER_USERNAME}" -propagate=true -role="${VCENTER_ROLE_PREFIX}-vCenter-Datastore" "/${VCENTER_DATACENTER_NAME}/datastore/${VCENTER_DATASTORE_NAME}"
+    ./govc permissions.set -principal="${VCENTER_USERNAME}" -propagate=false -role="${VCENTER_ROLE_PREFIX}-vCenter-Datastore" "/${VCENTER_DATACENTER_NAME}/datastore/${VCENTER_DATASTORE_NAME}"
     ./govc permissions.ls "/${VCENTER_DATACENTER_NAME}/datastore/${VCENTER_DATASTORE_NAME}" | grep -E "Entity|${LOCAL_VCENTER_TMPUSR}"
 
     echo ""
