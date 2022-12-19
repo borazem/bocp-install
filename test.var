@@ -1,0 +1,61 @@
+#! /bin/bash
+export OCP_ENV="test"
+# export OCP_INSTALL_FOLDER="./install"
+
+# to get INFRASTRUCTURE_ID run "oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster"
+export OCP_BASE_DOMAIN="benoibm.com"
+export OCP_CLUSTER_NAME="bocp"
+export VCENTER_SERVER_IP="cdavcenter7.cda1.internal"
+export VCENTER_USERNAME="ocp-sa@cda1.internal"
+export VCENTER_DATACENTER_NAME="Datacenter"
+export VCENTER_CLUSTER="OCP"
+export VCENTER_DATASTORE_NAME="cdanfs"
+export VCENTER_VM_NETWORK_NAME="VM Network"
+export OCP_VIP_API="192.168.20.92"
+export OCP_VIP_INGRESS="192.168.20.93"
+export OCP_SSH_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID4lpGr2UuXaAPhk3jHGfWy1ex+Bzm6codScAGGn8GN7 root@cdautil.cda.internal"
+export OCP_MACHINE_NETWORK="192.168.20.0/24"
+
+# Change the following 3 variables only if default is overlapping with physical network
+export OCP_CLUSTER_NETWORK="10.128.0.0/14"
+export OCP_CLUSTER_NETWORK_HOSTPREFIX="23"
+export OCP_SERVICE_NETWORK="172.30.0.0/16"
+
+# The Infrastructuer ID is generated when cluster is generated and templace name and folder path are created by Installer.
+export VCENTER_RESOURCE_POOL="/${VCENTER_DATACENTER_NAME}/host/${VCENTER_CLUSTER}/Resources"
+# to get infrastructure_id in the process of cluster installation run  ./openshift-install create manifests --dir=<installfolder> then 
+# execute " cat <installfolder>/manifests/instacluster-infrastructure-02-config.yml |grep infrastructureName |awk '{ print $2 }' 
+# or after cluster is deployed " oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster "
+export INFRASTRUCTURE_ID="bocp-qbmrq"
+export VCENTER_VM_TEMPLATE_NAME="${INFRASTRUCTURE_ID}-rhcos"
+export VCENTER_VM_FOLDER_PATH="/${VCENTER_DATACENTER_NAME}/vm/${INFRASTRUCTURE_ID}"
+
+# for assigning vCenter Roles for OCP through the script provide Roles prefix like metlife-ocp or ocp...  small letters
+export VCENTER_ROLE_PREFIX="bocp"
+
+
+# replicas, disk, memory and vpu size for INFRA nodes
+export M_DISKGIB=120
+export M_MEM=16384  # 16384, 24576, 32768
+export M_CPU=4      # 4, 6, 8
+export M_CPU_CORE=1
+# replicas, disk, memory and vpu size for INFRA nodes
+export W_NODE_REPLICAS=2
+export W_DISKGIB=120
+export W_MEM=8192   # 8192, 16384, 32768
+export W_CPU=4      # 4, ...
+export W_CPU_CORE=1
+# replicas, disk, memory and vpu size for INFRA nodes
+export INFRA_NODE_REPLICAS=2
+export INFRA_DISKGIB=120
+export INFRA_MEM=8192   # 8192, 16384, 32768
+export INFRA_CPU=4      # 4, ...
+export INFRA_CPU_CORE=1
+# disk, memory and vpu size for ODF nodes
+export ODF_DISKGIB=120
+export ODF_MEM=24576    # 24576, 32768, ...
+export ODF_CPU=14       # 14, ...
+export ODF_CPU_CORE=1
+
+
+# LDAP section

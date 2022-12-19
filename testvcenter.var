@@ -1,0 +1,14 @@
+#! /bin/bash
+export OCP_ENV="testvcenter"
+# export OCP_INSTALL_FOLDER="./install"
+
+# to get INFRASTRUCTURE_ID run "oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster"
+export VCENTER_SERVER_IP="cdavcenter7.cda1.internal"
+export VCENTER_USERNAME="botest@cda1.internal"
+export VCENTER_DATACENTER_NAME="Datacenter"
+export VCENTER_CLUSTER="OCP"
+export VCENTER_DATASTORE_NAME="cdanfs"
+export VCENTER_VM_NETWORK_NAME="VM Network"
+
+# for assigning vCenter Roles for OCP through the script provide Roles prefix like metlife-ocp or ocp...  small letters
+export VCENTER_ROLE_PREFIX="botest1"
