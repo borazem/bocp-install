@@ -1,0 +1,53 @@
+apiVersion: v1
+baseDomain: "<ocp_base_domain>"
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform:
+    vsphere: 
+      cpus: <w_cpu>
+      coresPerSocket: <w_cpu_core>
+      memoryMB: <w_mem>
+      osDisk:
+        diskSizeGB: <w_diskgib>
+  replicas: <w_node_replicas>
+controlPlane:
+  architecture: amd64 
+  hyperthreading: Enabled
+  name: master
+  platform:
+    vsphere: 
+      cpus: <m_cpu>
+      coresPerSocket: <m_cpu_core>
+      memoryMB: <m_mem>
+      osDisk:
+        diskSizeGB: <m_diskgib>
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: "<ocp_cluster_name>"
+networking:
+  clusterNetwork:
+  - cidr: <ocp_cluster_network>
+    hostPrefix: <ocp_cluster_network_hostprefix>
+  machineNetwork:
+  - cidr: <ocp_machine_network>
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - <ocp_service_network>
+platform:
+  vsphere:
+    apiVIP: <ocp_vip_api>
+    cluster: <vcenter_cluster>
+    datacenter: <vcenter_datacenter_name>
+    defaultDatastore: <vcenter_datastore_name>
+    ingressVIP: <ocp_vip_ingress>
+    network: "<vcenter_vm_network_name>"
+    password: <vcenter_password>
+    username: <vcenter_username>
+    vCenter: <vcenter_server_ip>
+    diskType: thin
+pullSecret: '<rh_pull_secret>'
+sshKey: |
+  <ocp_ssh_key>
