@@ -176,7 +176,7 @@ export LOCAL_ENV_PARAM=${1}
     ./govc role.create ${VCENTER_ROLE_PREFIX}-PortGroup \
     Network.Assign
 
-    echo "./rgovc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup"
+    echo "./govc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup"
     ./govc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup
 
     # role for vCenter
