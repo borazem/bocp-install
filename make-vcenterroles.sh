@@ -131,11 +131,11 @@ export LOCAL_ENV_PARAM=${1}
 
 # Create vCenter roles for OpenShift
 
-    ./rgovc role.create ${VCENTER_ROLE_PREFIX}-PortGroup \
+    ./govc role.create ${VCENTER_ROLE_PREFIX}-PortGroup \
     Network.Assign
 
     echo "./rgovc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup"
-    ./rgovc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup
+    ./govc role.ls ${VCENTER_ROLE_PREFIX}-PortGroup
 
 
     ./govc role.create ${VCENTER_ROLE_PREFIX}-vCenter  \
